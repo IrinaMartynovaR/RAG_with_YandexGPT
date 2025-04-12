@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Схема проекта 
 ![Снимок экрана (6135)](https://github.com/user-attachments/assets/c38dffb3-32a2-4811-8d1b-dd672f3f183e)
 
@@ -108,5 +109,3 @@
 ├── prompts.py                # Шаблоны промптов и цепочка
 └── evaluation.py             # Проверка качества
 ```
-
-
