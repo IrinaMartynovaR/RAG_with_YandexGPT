@@ -1,0 +1,23 @@
+[project]
+name = "rag-for-us"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Your Name",email = "you@example.com"}
+]
+readme = "README.md"
+requires-python = ">=3.9,<4.0"
+dependencies = [
+    "langchain (>=0.3.23,<0.4.0)",
+    "sentence-transformers (>=4.0.2,<5.0.0)",
+    "lancedb (>=0.21.2,<0.22.0)",
+    "unstructured (>=0.17.2,<0.18.0)",
+    "chromadb (>=1.0.4,<2.0.0)",
+    "langchain-community (>=0.3.21,<0.4.0)",
+    "torch (>=2.6.0,<3.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

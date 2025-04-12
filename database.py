@@ -1,15 +1,10 @@
-from langchain.vectorstores import Chroma
+from langchain_community.vectorstores import Chroma
+from langchain_community.embeddings import HuggingFaceEmbeddings
 from dotenv import load_dotenv
-from yandex_chain import YandexEmbeddings
 import os
 load_dotenv()
 
-# Инициализация модели эмбеддингов
-embeddings = YandexEmbeddings(
-    folder_id=os.environ['folder_id'],  
-    api_key=os.environ['api_key'],      
-    model="YandexGPTModel.Pro"
-)
+embeddings = HuggingFaceEmbeddings(model_name="distiluse-base-multilingual-cased-v1")
 
 def create_chroma_db(chunks, persist_directory="chroma_db_med"):
     """Создает базу данных Chroma из чанков."""
