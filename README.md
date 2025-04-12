@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Схема проекта 
 ![Снимок экрана (6135)](https://github.com/user-attachments/assets/c38dffb3-32a2-4811-8d1b-dd672f3f183e)
 
@@ -20,32 +19,24 @@
 
 1. **Клонируйте репозиторий:**
    ```bash
-   [git clone https://github.com/your-username/rag-medical-qa.git](https://github.com/IrinaMartynovaR/test_rag.git)
-   cd rag-medical-qa
+   git clone https://github.com/IrinaMartynovaR/RAG_with_YandexGPT.git
+   cd RAG_with_YandexGPT
    ```
 
-2. **Создайте виртуальную среду:**
+2. **Создайте виртуальную среду и установите зависимости с помощью Poetry:**
+   Убедитесь, что у вас установлен Poetry. Если нет, установите его, следуя инструкциям на [официальном сайте Poetry](https://python-poetry.org/docs/#installation).
+   Затем выполните команду для создания виртуальной среды и установки всех зависимостей, указанных в `pyproject.toml`:
    ```bash
-   python -m venv .venv
+   poetry install
    ```
 
 3. **Активируйте виртуальную среду:**
-   - Windows:
-     ```bash
-     .\.venv\Scripts\Activate
-     ```
-   - macOS/Linux:
-     ```bash
-     source .venv/bin/activate
-     ```
-
-4. **Установите зависимости:**
+   Для активации виртуальной среды используйте:
    ```bash
-   pip install -r requirements.txt
+   poetry shell
    ```
-    ```bash
-   pip install yandex-chain==0.0.9 --no-deps
-   ```
+
+4. **Убедитесь, что зависимости установлены корректно.**
 
 ---
 
@@ -56,6 +47,7 @@
    ```plaintext
    folder_id=your_folder_id_here
    api_key=your_api_key_here
+   IAM_TOKEN = IAM_TOKEN
    ```
 
 2. **Добавьте исходный текстовый файл:**
@@ -73,7 +65,7 @@
 
 1. **Запустите основной скрипт:**
    ```bash
-   python main.py
+   poetry run python main.py
    ```
 
 2. **Задайте вопросы:**
@@ -89,6 +81,8 @@
    Этот вопрос выходит за пределы моей компетенции.
    ```
 
+   ```
+
 ## Структура проекта
 
 ```
@@ -101,11 +95,12 @@
 ├── .env                      # Переменные окружения
 ├── .gitignore                # Игнорируемые файлы
 ├── README.md                 # Документация
-├── requirements.txt          # Зависимости
+├── pyproject.toml            # Зависимости
+├── prompt_template.txt       # Промт
 │
 ├── main.py                   # Основной скрипт
 ├── preprocessing.py          # Предобработка текста
 ├── database.py               # Работа с базой данных Chroma
 ├── prompts.py                # Шаблоны промптов и цепочка
-└── evaluation.py             # Проверка качества
+└── YaLLM.py                  # Модель
 ```
