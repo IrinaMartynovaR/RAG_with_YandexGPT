@@ -19,8 +19,8 @@
 
 1. **Клонируйте репозиторий:**
    ```bash
-   git clone https://github.com/IrinaMartynovaR/test_rag.git
-   cd test_rag
+   git clone https://github.com/IrinaMartynovaR/RAG_with_YandexGPT.git
+   cd RAG_with_YandexGPT
    ```
 
 2. **Создайте виртуальную среду и установите зависимости с помощью Poetry:**
@@ -95,11 +95,12 @@
 ├── .env                      # Переменные окружения
 ├── .gitignore                # Игнорируемые файлы
 ├── README.md                 # Документация
-├── requirements.txt          # Зависимости
+├── pyproject.toml            # Зависимости
+├── prompt_template.txt       # Промт
 │
 ├── main.py                   # Основной скрипт
 ├── preprocessing.py          # Предобработка текста
 ├── database.py               # Работа с базой данных Chroma
 ├── prompts.py                # Шаблоны промптов и цепочка
-└── evaluation.py             # Проверка качества
+└── YaLLM.py                  # Модель
 ```
