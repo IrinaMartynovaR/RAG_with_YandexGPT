@@ -1,8 +1,8 @@
 from dotenv import load_dotenv
 import os
-from preprocessing import read_file, clean_text, split_text_into_chunks
-from database import create_chroma_db, load_chroma_db
-from prompts import create_chain
+from src.scripts.preprocessing import read_file, clean_text, split_text_into_chunks
+from src.scripts.database import create_chroma_db, load_chroma_db
+from src.scripts.prompts import create_chain
 import warnings
 
 # Скрыть все предупреждения LangChainDeprecationWarning

@@ -2,7 +2,7 @@ from langchain.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough, RunnableLambda
 from langchain_community.embeddings import HuggingFaceEmbeddings
-from YaLLM import YandexLLM
+from src.model.YaLLM import YandexLLM
 import os
 from dotenv import load_dotenv
 
@@ -17,8 +17,8 @@ api_key = os.getenv('api_key')
 
 
 # Путь к файлам
-template_file = 'prompt_template.txt'
-forbidden_keywords_file = 'forbidden_keywords.txt'
+template_file = 'src/resources/prompt_template.txt'
+forbidden_keywords_file = 'src/resources/forbidden_keywords.txt'
 
 # Инициализация модели Yandex GPT
 llm = YandexLLM(
