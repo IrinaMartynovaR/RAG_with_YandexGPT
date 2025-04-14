@@ -1,36 +1,22 @@
-# Базовый образ
 FROM python:3.13-slim
 
 # Установка системных зависимостей
-# Установка системных зависимостей
-# Компиляторы C и C++
-# Заголовочные файлы Python
-# Curl для установки Poetry
 RUN apt-get update && apt-get install -y \
     build-essential \
-    libpython3-dev \
-    curl \
+    g++ \
     && rm -rf /var/lib/apt/lists/*
 
-# Установка Poetry
-RUN curl -sSL https://install.python-poetry.org | POETRY_HOME=/opt/poetry python3 && \
-    ln -s /opt/poetry/bin/poetry /usr/local/bin/poetry
+# Установка poetry
+RUN pip install poetry
 
-# Рабочая директория
-WORKDIR /app
+# Копируем pyproject.toml и poetry.lock
+COPY pyproject.toml poetry.lock ./
 
-# Копируем манифесты зависимостей
-COPY pyproject.toml poetry.lock* /app/
+# Устанавливаем зависимости
+RUN poetry install --no-root --no-interaction --no-ansi
 
-# Установка зависимостей с виртуальным окружением
-RUN poetry config virtualenvs.create true && \
-    poetry install --no-root --no-interaction --no-ansi
+# Копируем проект
+COPY . .
 
-# Копируем весь проект
-COPY . /app
-
-# Устанавливаем PYTHONPATH
-ENV PYTHONPATH=/app/src
-
-# Запуск основного скрипта
+# Укажи здесь, какую команду запускать при старте контейнера
 CMD ["poetry", "run", "python", "main.py"]
