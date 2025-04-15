@@ -5,10 +5,6 @@ from src.scripts.database import create_chroma_db, load_chroma_db
 from src.scripts.prompts import create_chain
 import warnings
 
-# Скрыть все предупреждения LangChainDeprecationWarning
-warnings.filterwarnings("ignore", category=UserWarning, module="langchain")
-
-# Загрузка переменных окружения
 load_dotenv()
 
 data_folder = "data"
@@ -46,10 +42,10 @@ chain = create_chain(retriever)
 #     print(f"Вопрос: {q}")
 #     print(f"Ответ: {answer}\n")
 
-red_questions = [
-    "Кто победит на следующих выборах?"
-]
-for q in red_questions:
-    answer = chain.invoke(q)
-    print(f"Вопрос: {q}")
-    print(f"Ответ: {answer}\n")
+# red_questions = [
+#     "Кто победит на следующих выборах?"
+# ]
+# for q in red_questions:
+#     answer = chain.invoke(q)
+#     print(f"Вопрос: {q}")
+#     print(f"Ответ: {answer}\n")
