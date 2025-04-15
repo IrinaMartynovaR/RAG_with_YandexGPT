@@ -1,22 +1,28 @@
 FROM python:3.13-slim
 
-# Установка системных зависимостей
+WORKDIR /app
+
+# Install poetry
+RUN pip install poetry
+
+# Copy poetry files
+COPY pyproject.toml poetry.lock ./
+
 RUN apt-get update && apt-get install -y \
     build-essential \
     g++ \
     && rm -rf /var/lib/apt/lists/*
 
-# Установка poetry
-RUN pip install poetry
+# Configure poetry to not create a virtual environment inside the container
+RUN poetry config virtualenvs.create false
 
-# Копируем pyproject.toml и poetry.lock
-COPY pyproject.toml poetry.lock ./
+# Install dependencies
+RUN poetry install --no-interaction --no-root
 
-# Устанавливаем зависимости
-RUN poetry install --no-root --no-interaction --no-ansi
-
-# Копируем проект
+# Copy the rest of the application
 COPY . .
 
-# Укажи здесь, какую команду запускать при старте контейнера
+# Install the package in development mode
+RUN poetry install --no-interaction --no-root
+
 CMD ["poetry", "run", "python", "main.py"]
