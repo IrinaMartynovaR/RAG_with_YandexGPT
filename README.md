@@ -1,5 +1,6 @@
 # Схема проекта 
-![Снимок экрана (6135)](https://github.com/user-attachments/assets/c38dffb3-32a2-4811-8d1b-dd672f3f183e)
+![156159fdf22c9dc5046bd7a2b5a550d7](https://github.com/user-attachments/assets/53aa62f8-9b9c-4c8a-a75b-19f18b6249c5)
+
 
 # Проект RAG (Retrieval-Augmented Generation) для медицинских вопросов
 
